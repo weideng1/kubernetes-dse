@@ -44,6 +44,7 @@ $ kubectl apply -f dse-suite-gke.yaml
 You can run the following command to monitor the status of your deployment.
 ```
 $ kubectl get all
+```
 Then run the following command to view if the status of **dse-cluster-init-job** has successfully completed.  It generally takes about 10 minutes to spin up a 3-node DSE cluster.
 ```
 $ kubectl get job dse-cluster-init-job
