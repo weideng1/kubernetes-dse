@@ -101,7 +101,7 @@ spec:
       containers:
       - name: dse
         image: gcr.io/datastax-public/dse-server:6.0.0
-        args: [ "dse", "cassandra", "-s", "-k", "-g", "-f"]
+        args: [ "dse", "cassandra", "-f"]
         imagePullPolicy: IfNotPresent
         resources:
           requests:
