@@ -7,10 +7,6 @@ This project provides a set of sample Kubernetes yamls to provision DataStax Ent
 * Tools including wget, kubectl have already been installed on your machine to execute our yamls.
 * Kubernetes server's version is 1.8.x or higher. 
 
-**Step One: Deploy the yamls set**
-
-You can choose one of the following four deployment options.
-
 #### 1. Create required configmaps for DataStax Enterprise Statefulset and DataStax Enterprise OpsCenter Statefulset
 ```
 $ kubectl create configmap dse-config --from-file=common/dse/conf-dir/resources/cassandra/conf --from-file=common/dse/conf-dir/resources/dse/conf
