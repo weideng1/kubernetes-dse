@@ -63,7 +63,7 @@ Then run the following command to view if the status of **dse-cluster-init-job**
 ```
 $ kubectl get job dse-cluster-init-job
 ```
-Once complete, you can access the DataStax Enterprise OpsCenter web console to view the newly created DSE cluster by pointing your browser at http://<svc/opscenter-ext-lb's EXTERNAL-IP>:8443
+Once complete, you can access the DataStax Enterprise OpsCenter web console to view the newly created DSE cluster by pointing your browser at https://<svc/opscenter-ext-lb's EXTERNAL-IP>:8443 with Username: admin and Password: datastax1! (if you use the default OpsCenter admin's password K8 secret)
 
 #### 5. Tear down the DSE deployment**
 ```
