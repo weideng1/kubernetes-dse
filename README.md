@@ -9,6 +9,8 @@ This project provides a set of sample Kubernetes yamls to provision DataStax Ent
 
 #### 1. Create required configmaps for DataStax Enterprise Statefulset and DataStax Enterprise OpsCenter Statefulset
 ```
+$ git clone -b dev-201808 https://github.com/DSPN/kubernetes-dse
+
 $ kubectl create configmap dse-config --from-file=common/dse/conf-dir/resources/cassandra/conf --from-file=common/dse/conf-dir/resources/dse/conf
 
 $ kubectl create configmap opsc-config --from-file=common/opscenter/conf-dir/agent/conf --from-file=common/opscenter/conf-dir/conf --from-file=common/opscenter/conf-dir/conf/event-plugins
