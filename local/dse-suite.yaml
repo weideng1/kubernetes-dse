@@ -83,11 +83,19 @@ spec:
       - name: config-volume
         configMap:
           name: opsc-config
-      - name: config-clusters-volume
-        emptyDir: {}
       - name: ssl-store-volume
         configMap:
           name: opsc-ssl-config
+  volumeClaimTemplates:
+  - metadata:
+      name: config-clusters-volume
+      annotations:
+        volume.beta.kubernetes.io/storage-class: fast
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
 ---
 apiVersion: v1
 kind: Service
