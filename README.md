@@ -53,7 +53,7 @@ $ kubectl apply -f eks/dse-suite.yaml
 $ kubectl apply -f gke/dse-suite.yaml
 ```
 
-#### 4. Access the DataStax Enterprise OpsCenter managing the newly created DSE cluster**
+#### 4. Access the DataStax Enterprise OpsCenter managing the newly created DSE cluster
 
 You can run the following command to monitor the status of your deployment.
 ```
@@ -65,10 +65,9 @@ $ kubectl get job dse-cluster-init-job
 ```
 Once complete, you can access the DataStax Enterprise OpsCenter web console to view the newly created DSE cluster by pointing your browser at https://<svc/opscenter-ext-lb's EXTERNAL-IP>:8443 with Username: admin and Password: **datastax1!** (if you use the default OpsCenter admin's password K8 secret)
 
-#### 5. Tear down the DSE deployment**
+#### 5. Tear down the DSE deployment
 ```
 $ kubectl delete -f <your cloud platform choice>/dse-suite.yaml (the same yaml file you used in step three above)
 $ kubectl delete pvc -l app=dse (to remove the dynamically provisioned persistent volumes for DSE)
 $ kubectl delete pvc -l app=opscenter (to remove the dynamically provisioned persistent volumes for OpsCenter)
 ```
-
