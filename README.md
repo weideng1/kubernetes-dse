@@ -9,7 +9,7 @@ This project provides a set of sample Kubernetes yamls to provision DataStax Ent
 
 #### 1. Create required configmaps for DataStax Enterprise Statefulset and DataStax Enterprise OpsCenter Statefulset
 ```
-$ git clone -b dev-201808 https://github.com/DSPN/kubernetes-dse
+$ git clone https://github.com/DSPN/kubernetes-dse
 
 $ cd kubernetes-dse
 
@@ -32,29 +32,25 @@ $ kubectl apply -f common/secrets/opsc-secrets.yaml
 ##### 3.1 Running DSE + OpsCenter locally on a laptop/notebook
 *This yamls set uses emptyDir as DataStax Enterprise data store.*
 ```
-$ wget --quiet https://github.com/DSPN/kubernetes-dse/raw/dev-201808/local/dse-suite.yaml -O dse-suite-local.yaml
-$ kubectl apply -f dse-suite-local.yaml
+$ kubectl apply -f local/dse-suite.yaml
 ```
 
 ##### 3.2 Running DSE + OpsCenter on Azure Container Service (AKS) [sample]
 *This yamls set uses kubernetes.io/azure-disk provisioner along with Premium_LRS storage type on Azure*
 ```
-$ wget --quiet https://github.com/DSPN/kubernetes-dse/raw/dev-201808/aks/dse-suite.yaml -O dse-suite-aks.yaml
-$ kubectl apply -f dse-suite-aks.yaml
+$ kubectl apply -f aks/dse-suite.yaml
 ```
 
 ##### 3.3 Running DSE + OpsCenter on Amazon Elastic Container Service (EKS) in us-west-2a [sample]
 *This yamls set uses kubernetes.io/aws-ebs provisioner along with ext4 filesystem type and IOPS per GB rate 10 in us-west-2a.  You will need to modify the StorageClass definition if you plan to deploy in different AWS zone.* 
 ```
-$ wget --quiet https://github.com/DSPN/kubernetes-dse/raw/dev-201808/eks/dse-suite.yaml -O dse-suite-eks.yaml
-$ kubectl apply -f dse-suite-eks.yaml
+$ kubectl apply -f eks/dse-suite.yaml
 ```
 
 ##### 3.4 Running DSE + OpsCenter on Google Kubernetes Engine (GKE) [sample]
 *This yamls set uses kubernetes.io/gce-pd provisioner along with pd-ssd persistent disk type*
 ```
-$ wget --quiet https://github.com/DSPN/kubernetes-dse/raw/dev-201808/gke/dse-suite.yaml -O dse-suite-gke.yaml
-$ kubectl apply -f dse-suite-gke.yaml
+$ kubectl apply -f gke/dse-suite.yaml
 ```
 
 #### 4. Access the DataStax Enterprise OpsCenter managing the newly created DSE cluster**
@@ -71,7 +67,7 @@ Once complete, you can access the DataStax Enterprise OpsCenter web console to v
 
 #### 5. Tear down the DSE deployment**
 ```
-$ kubectl delete -f dse-suite-<your cloud platform choice>.yaml (the same yaml file you used in step three above)
+$ kubectl delete -f <your cloud platform choice>/dse-suite.yaml (the same yaml file you used in step three above)
 $ kubectl delete pvc -l app=dse (to remove the dynamically provisioned persistent volumes for DSE)
 $ kubectl delete pvc -l app=opscenter (to remove the dynamically provisioned persistent volumes for OpsCenter)
 ```
