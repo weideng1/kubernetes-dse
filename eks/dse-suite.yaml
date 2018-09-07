@@ -17,8 +17,6 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 8888
-    name: opsc-gui-port
   - port: 8443
     name: opsc-secure-port
   selector:
