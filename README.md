@@ -8,6 +8,8 @@ This project provides a set of sample Kubernetes yamls to provision DataStax Ent
 * Kubernetes server's version is 1.8.x or higher. 
 
 #### 1. Create required configmaps for DataStax Enterprise Statefulset and DataStax Enterprise OpsCenter Statefulset
+Docker images provided by DataStax include a startup script that swaps DataStax Enterprise (DSE) and OpsCenter configuration files found in the /config volume directory with the configuration file in the default location on the container. In a Kubernetes deployment, it is enabled through Kubernetes ConfigMap volume to inject configuration data into Pods. 
+In this repo, we provide a sample set of DSE and OpsCenter configuration files.  Follow this link for supported configuration files for [DSE](https://github.com/datastax/docker-images/blob/master/server/6.0/files/overwritable-conf-files) and this link for [OpsCenter](https://github.com/datastax/docker-images/blob/master/opscenter/6.5/files/overwritable-conf-files).  You could add additional supported configuration files which are not included in this repo. 
 ```
 $ git clone https://github.com/DSPN/kubernetes-dse
 
